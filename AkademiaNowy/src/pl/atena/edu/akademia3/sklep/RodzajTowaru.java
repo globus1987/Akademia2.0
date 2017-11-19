@@ -41,9 +41,7 @@ public enum RodzajTowaru {
 		return this.cenaBazowa;
 	}
 
-	private RodzajTowaru(final Boolean dlaPelnoletnich) {
-		this.dlaPelnoletnich = dlaPelnoletnich;
-	}
+
 	private RodzajTowaru(final Boolean dlaPelnoletnich,final BigDecimal cena) {
 		this.dlaPelnoletnich = dlaPelnoletnich;
 		this.cenaBazowa=cena;

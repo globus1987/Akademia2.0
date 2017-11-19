@@ -18,29 +18,11 @@ public class ListaTowarow {
 		List<Towar> towaryinicjalne = new ArrayList<>();
 		Set<RodzajTowaru> rodzajeTowarow = EnumSet.allOf(RodzajTowaru.class);
 		rodzajeTowarow.forEach(o->towaryinicjalne.add(new Towar(o)));
-		towaryinicjalne.sort(new Comparator<Towar>() {
-			@Override
-			public int compare(final Towar o1, final Towar o2) {
-				int iloscCmp = o1.podajIloscTowaru().compareTo(o2.podajIloscTowaru());
-				if (iloscCmp!=0)
-				{
-					return iloscCmp;
-				}
-				return o1.getCena().compareTo(o2.getCena()) ;
-
-			}
-		});
+		towaryinicjalne.sort(Comparator.comparing(Towar::getIlosc));
 		this.towary = towaryinicjalne;	}
 
 	public List<Towar> getTowary() {
-		this.towary.sort(new Comparator<Towar>(){
-			@Override
-			public int compare(final Towar o1, final Towar o2) {
-				return o1.getCena().compareTo(o2.getCena());
-			}
-
-		}
-				);
+		this.towary.sort(Comparator.comparing(Towar::getIlosc));
 		return this.towary;
 	}
 
